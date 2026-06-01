@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #060913;
+  --foreground: #e2e8f0;
+  
+  --terminal-darker: #04070d;
+  --terminal-panel: #0b111e;
+  --terminal-border: #1e293b;
+  --terminal-border-glow: rgba(30, 41, 59, 0.5);
+  
+  --terminal-green: #00ff66;
+  --terminal-green-glow: rgba(0, 255, 102, 0.15);
+  --terminal-red: #ff3b30;
+  --terminal-red-glow: rgba(255, 59, 48, 0.15);
+  --terminal-yellow: #ffcc00;
+  --terminal-cyan: #00e5ff;
+  --terminal-cyan-glow: rgba(0, 229, 255, 0.15);
+  --terminal-blue: #007aff;
+  
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Outfit', 'Inter', sans-serif;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-terminal-darker: var(--terminal-darker);
+  --color-terminal-panel: var(--terminal-panel);
+  --color-terminal-border: var(--terminal-border);
+  --color-terminal-border-glow: var(--terminal-border-glow);
+  
+  --color-terminal-green: var(--terminal-green);
+  --color-terminal-green-glow: var(--terminal-green-glow);
+  --color-terminal-red: var(--terminal-red);
+  --color-terminal-red-glow: var(--terminal-red-glow);
+  --color-terminal-yellow: var(--terminal-yellow);
+  --color-terminal-cyan: var(--terminal-cyan);
+  --color-terminal-cyan-glow: var(--terminal-cyan-glow);
+  --color-terminal-blue: var(--terminal-blue);
+  
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Monospace text */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* CRT Scanline Overlay Effect - highly subtle for authentic terminal style */
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+  aspect-ratio: auto;
+  background-size: 100% 4px, 6px 100%;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+/* Terminal Glow Border */
+.terminal-glow-green {
+  box-shadow: 0 0 10px var(--terminal-green-glow);
+  border-color: var(--terminal-green);
+}
+
+.terminal-glow-cyan {
+  box-shadow: 0 0 10px var(--terminal-cyan-glow);
+  border-color: var(--terminal-cyan);
+}
+
+.terminal-glow-red {
+  box-shadow: 0 0 10px var(--terminal-red-glow);
+  border-color: var(--terminal-red);
+}
+
+/* Custom Scrollbar for Terminal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-cyan);
+}
+
+/* Ticker tape marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* LED Digital Glow font-like effects */
+.digital-glow {
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* Print CSS variables & structure for PDF export */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-page {
+    page-break-after: always;
+    color: #000000 !important;
+    background: #ffffff !important;
+    padding: 2rem !important;
+  }
+  
+  .print-card {
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+}
