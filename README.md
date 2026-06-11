@@ -8,7 +8,26 @@ SEC Analyst is a full-stack investment research platform designed to streamline 
 
 The platform combines live Yahoo Finance market data with OpenAI-powered investment analysis to simulate the workflow of institutional equity research teams.
 
+### Key Capabilities
+
+- Real-time financial data integration
+- AI-generated equity research reports
+- PDF memorandum export
+- Historical performance analysis
+- Company comparison engine
+- Institutional-style valuation framework
+
 ---
+
+## Live Demo
+
+[https://YOUR-VERCEL-LINK.vercel.app](https://sec-analyst.vercel.app)
+
+Try:
+- AAPL
+- NVDA
+- MSFT
+- MCD
 
 ## Features
 
@@ -75,16 +94,43 @@ The platform combines live Yahoo Finance market data with OpenAI-powered investm
 
 ---
 
-## Screenshots
+## Architecture
+
+User Input (Ticker Symbol)
+↓
+Yahoo Finance API
+↓
+Financial Data Processing Layer
+↓
+OpenAI GPT-4o-mini Analysis Engine
+↓
+Investment Memorandum Generation
+↓
+Interactive Dashboard + PDF Export
+
+---
+
+## Platform Screenshots
 
 ### Equity Research Dashboard
-(Add screenshot here)
+<img width="1352" height="664" alt="Screenshot 2026-06-11 at 11 56 05 AM" src="https://github.com/user-attachments/assets/ded115c4-9f6d-4ca5-8cb3-140929d6991c" />
 
-### Company Comparison Engine
-(Add screenshot here)
 
-### PDF Research Report
-(Add screenshot here)
+### Company Research Report 
+<img width="1507" height="755" alt="Screenshot 2026-06-11 at 12 00 02 PM" src="https://github.com/user-attachments/assets/a62e1b82-bdba-4f26-a67d-0f717376c296" /> 
+
+
+### Financial Statement Dashboard 
+<img width="1512" height="752" alt="Screenshot 2026-06-11 at 12 00 50 PM" src="https://github.com/user-attachments/assets/83ad0a9a-c364-4c1a-8c71-5421d43b4b7f" />
+
+
+### Investment Memo 
+<img width="1512" height="749" alt="Screenshot 2026-06-11 at 12 01 29 PM" src="https://github.com/user-attachments/assets/545fa358-a039-4977-a7b2-41ca04b4ca96" />
+
+
+### Bull vs Bear Analysis   
+<img width="1511" height="577" alt="Screenshot 2026-06-11 at 12 02 52 PM" src="https://github.com/user-attachments/assets/01d75cb0-e50a-4b1e-b866-a8d62f0c165b" />
+
 
 ---
 
@@ -147,7 +193,11 @@ http://localhost:3000
 
 ## Why I Built This
 
-I built SEC Analyst to combine my interests in technology, investing, and artificial intelligence. As someone pursuing a career in technology-focused investing, I wanted to create a platform that mirrors how professional investors evaluate companies while leveraging AI to accelerate research and decision-making.
+I built SEC Analyst to combine my interests in investing, technology, and artificial intelligence.
+
+The goal was to recreate a professional equity research workflow by integrating live market data, financial statement analysis, valuation metrics, and AI-generated investment memoranda into a single platform.
+
+Through this project, I gained experience building full-stack applications, integrating external APIs, deploying production software, and applying AI to real-world financial research problems.
 
 ---
 
